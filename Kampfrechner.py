@@ -6,7 +6,8 @@ Dann eine Enstcheidung im zu Kämpfen oder den Status zu sehen.
 To do:
     - Kampftabelle https://mantikoreverlag.de/wp-content/uploads/downloads/1/EW_Kampftabelle.pdf
       muss noch abgebildet werden.
-      Aktuelle Lösung If / Elif Schleife über die Tabelle gehen lassen.
+      Alt: Aktuelle Lösung If / Elif Schleife über die Tabelle gehen lassen.
+      Neuer Ansatz: JSON File oder CSV Tabelle einlesen
 Stand 01.03.2019
 """
 
