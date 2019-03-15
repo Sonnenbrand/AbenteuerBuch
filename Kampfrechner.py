@@ -23,22 +23,16 @@ Zufallszahl = str(0) # random.randint(-1, 10)
 Teil1 = 1
 
 
-def kampfergebnissM(KampfQoutient, Zufallszahl, HeldenAusdauer):
-    Teil1 = str(Zufallszahl + KampfQoutient)
-    return Teil1
-
-def ausdaueranpassungM(Teil1, MonsterAusdauer):
-    print(KampfErgebnisseF[Teil1])
-    return MonsterAusdauer
-
 if HeldenAusdauer > 0:
     print("Leben und kämpfen")
     MonsterKraft = 10 # int(input("Wie ist die Kraft des Monsters? "))
     MonsterAusdauer = 11 # int(input("Wie ist die Ausdauer des Monsters? "))
     KampfQoutient = HeldenKraft - MonsterKraft
+    print("Ok, deine Ausdauer ist " + str(HeldenAusdauer) + " und das Monster hat noch " + str(MonsterAusdauer) + " !")
     Teil1 = str(Zufallszahl) + str(KampfQoutient)
     #ausdaueranpassungM(Teil1, MonsterAusdauer)
     MonsterAusdauer = MonsterAusdauer + KampfErgebnisseF[Teil1]
+    HeldenAusdauer = HeldenAusdauer + KampfErgebnisseH[Teil1]
     print(MonsterAusdauer)
 
 else:
