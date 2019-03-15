@@ -9,46 +9,37 @@ To do:
       Alt: Aktuelle Lösung If / Elif Schleife über die Tabelle gehen lassen.
       Neuer Ansatz: JSON File oder CSV Tabelle einlesen
 Stand 01.03.2019
+Total Redo - Neuer Ansatz mit Dictionary und einfacher Schleife!
+Stand 15.03.2019
 """
 
+# import random
 
-import random
-
-HeldenName = input("Wie heißt du? ")
 HeldenKraft = int((input("Wie hoch ist deine Kraft? ")))
 HeldenAusdauer = int((input("Wie ist deine Ausdauer? ")))
-HeldenKA = [HeldenKraft, HeldenAusdauer]
-Heldlebtnoch = True
-IstMonsterTot = False
-Zufallszahl = 1 # random.randint(-1, 10)
+KampfErgebnisseF = {"0-11":-6,"0-10":-7,"0-9":-7,"0-8":-8}
+KampfErgebnisseH = {"0-11":-3,"0-10":-2,"0-9":-2,"0-8":-1}
+Zufallszahl = str(0) # random.randint(-1, 10)
+Teil1 = 1
 
-print ("Alles klar " + HeldenName + "!")
 
-def heldenstatus():
-    print("Du hast " + str(HeldenAusdauer) + " als Ausdauer und du hast " + str(HeldenKraft) + " als Kraft.")
+def kampfergebnissM(KampfQoutient, Zufallszahl, HeldenAusdauer):
+    Teil1 = str(Zufallszahl + KampfQoutient)
+    return Teil1
 
-HeldenEntscheidung = int(input("Was willst du tun? \n1 = Wie ist mein Status?\n2 = Ich muss kämpfen!\n"))
+def ausdaueranpassungM(Teil1, MonsterAusdauer):
+    print(KampfErgebnisseF[Teil1])
+    return MonsterAusdauer
 
-def kampfergebniss(KampfQoutient, Zufallszahl, HeldenAusdauer):
-    if KampfQoutient <= -9 and Zufallszahl == 1:
-        print("Du bist Tod!")
-    elif KampfQoutient == -8 and Zufallszahl == 1:
-        HeldenAusdauer = HeldenAusdauer - 8
-        print("Das tat weh...deine Ausdauer ist um 8 Punkte auf " + str(HeldenAusdauer) + " gesunken!")
-    elif KampfQoutient == -7 and Zufallszahl == 1:
-        Ergebniss = HeldenAusdauer - 8
-        print("Das tat weh...deine Ausdauer ist um 8 Punkte auf " + str(Ergebniss) + " gesunken!")
-    elif KampfQoutient == -6 and Zufallszahl == 1:
-        Ergebniss = HeldenAusdauer - 6
-        print("Das tat weh...deine Ausdauer ist um 6 Punkte auf " + str(Ergebniss) + " gesunken!")
-    else:
-        print("Das war knapp!")
-
-if HeldenEntscheidung == 1:
-    heldenstatus()
-else:
-    print("Auf in die Schlacht!")
+if HeldenAusdauer > 0:
+    print("Leben und kämpfen")
     MonsterKraft = 10 # int(input("Wie ist die Kraft des Monsters? "))
-    MonsterAusdauer = 5 # int(input("Wie ist die Ausdauer des Monsters? "))
+    MonsterAusdauer = 11 # int(input("Wie ist die Ausdauer des Monsters? "))
     KampfQoutient = HeldenKraft - MonsterKraft
-    kampfergebniss(KampfQoutient, Zufallszahl, HeldenAusdauer)
+    Teil1 = str(Zufallszahl) + str(KampfQoutient)
+    #ausdaueranpassungM(Teil1, MonsterAusdauer)
+    MonsterAusdauer = MonsterAusdauer + KampfErgebnisseF[Teil1]
+    print(MonsterAusdauer)
+
+else:
+    print("Tod")
