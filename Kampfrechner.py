@@ -13,7 +13,7 @@ Total Redo - Neuer Ansatz mit Dictionary und einfacher Schleife!
 Stand 15.03.2019
 """
 
-import random
+# import random
 
 # Hier die Variablendefinitionen. Das Dictionary müsste zur lesbarkeit anders dargestellt werden.
 
