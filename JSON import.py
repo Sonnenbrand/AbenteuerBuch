@@ -10,7 +10,7 @@
 #-------------------------------------------------------------------------------
 
 import json
-with open(r'''C:\Users\f.reiter\Desktop\KampftabelleMonster.json''') as f:
+with open(r'''C:\Users\Sonne\PycharmProjects\AbenteuerBuch\KampftabelleMonster.json''') as f:
     Tabelle = json.load(f)
 
 print(Tabelle['0-10'])
