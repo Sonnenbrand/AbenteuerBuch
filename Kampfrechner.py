@@ -128,22 +128,29 @@ Teil1 = 0
 
 # Hier beginnt das Programm
 
-def kampf_H(KampfQuotient, Zufallszahl, HeldenAusdauer):
-    Teil1 = str(Zufallszahl) + str(KampfQoutient)
-    HeldenAusdauer = HeldenAusdauer + KampfErgebnisseH[Teil1]
+
+def kampf_H(kq, zz, ha):
+    Teil1 = str(zz) + str(kq)
+    HeldenAusdauer = ha + KampfErgebnisseH[Teil1]
     return HeldenAusdauer
 
-def kampf_M(KampfQoutient, Zufallszahl, MonsterAusdauer):
-    Teil1 = str(Zufallszahl) + str(KampfQoutient)
-    MonsterAusdauer = MonsterAusdauer + KampfErgebnisseF[Teil1]
+
+def kampf_M(kq, zz, ma):
+    Teil1 = str(zz) + str(kq)
+    MonsterAusdauer = ma + KampfErgebnisseF[Teil1]
     return MonsterAusdauer
 
+
 MonsterKraft = int(input("Wie ist die Kraft des Monsters? "))
+
+
 MonsterAusdauer = int(input("Wie ist die Ausdauer des Monsters? "))
-print("Du hast also " + str(HeldenKraft) + " Kraft und " + str(HeldenAusdauer) + " Ausdauer.")
-print("Dein Gegner hat " + str(MonsterKraft) + " Kraft und " + str(MonsterAusdauer) + " Ausdauer.")
+
+
+print("Du hast also ", HeldenKraft, " Kraft und ", HeldenAusdauer, " Ausdauer.")
+print("Dein Gegner hat ", MonsterKraft, " Kraft und ", MonsterAusdauer, " Ausdauer.")
 print("Der Kampf beginnt!")
 KampfQoutient = HeldenKraft - MonsterKraft
 ErgbenissH = kampf_H(KampfQoutient, Zufallszahl, HeldenAusdauer)
 ErgebnissM = kampf_M(KampfQoutient, Zufallszahl, MonsterAusdauer)
-print("Heldenausdauer neu: " + str(ErgbenissH) + " - Monsterausdauer neu: " + str(ErgebnissM))
+print("Heldenausdauer neu: ", ErgbenissH, " - Monsterausdauer neu: ", ErgebnissM)
