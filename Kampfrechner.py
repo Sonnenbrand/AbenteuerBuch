@@ -1,4 +1,5 @@
 
+
 """
 Dies ist ein Rechner um Kämpfe im Buch Einsamer Wolf schnell zu rechnen.
 Erst eine kurze Abfrage der eigenen Stärke und Ausdauer.
@@ -127,12 +128,12 @@ Teil1 = 0
 
 # Hier beginnt das Programm
 
-def kampfH(KampfQuotient, Zufallszahl, HeldenAusdauer):
+def kampf_H(KampfQuotient, Zufallszahl, HeldenAusdauer):
     Teil1 = str(Zufallszahl) + str(KampfQoutient)
     HeldenAusdauer = HeldenAusdauer + KampfErgebnisseH[Teil1]
     return HeldenAusdauer
 
-def kampfM(KampfQoutient, Zufallszahl, MonsterAusdauer):
+def kampf_M(KampfQoutient, Zufallszahl, MonsterAusdauer):
     Teil1 = str(Zufallszahl) + str(KampfQoutient)
     MonsterAusdauer = MonsterAusdauer + KampfErgebnisseF[Teil1]
     return MonsterAusdauer
@@ -143,6 +144,6 @@ print("Du hast also " + str(HeldenKraft) + " Kraft und " + str(HeldenAusdauer) +
 print("Dein Gegner hat " + str(MonsterKraft) + " Kraft und " + str(MonsterAusdauer) + " Ausdauer.")
 print("Der Kampf beginnt!")
 KampfQoutient = HeldenKraft - MonsterKraft
-ErgbenissH = kampfH(KampfQoutient, Zufallszahl, HeldenAusdauer)
-ErgebnissM = kampfM(KampfQoutient, Zufallszahl, MonsterAusdauer)
+ErgbenissH = kampf_H(KampfQoutient, Zufallszahl, HeldenAusdauer)
+ErgebnissM = kampf_M(KampfQoutient, Zufallszahl, MonsterAusdauer)
 print("Heldenausdauer neu: " + str(ErgbenissH) + " - Monsterausdauer neu: " + str(ErgebnissM))
