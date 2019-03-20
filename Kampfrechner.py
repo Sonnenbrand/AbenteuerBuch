@@ -1,5 +1,3 @@
-
-
 #-------------------------------------------------------------------------------
 # test der while loop
 #-------------------------------------------------------------------------------
@@ -147,7 +145,7 @@ else:
     if HeldenAusdauer <= 0 and MonsterAusdauer <= 0:
         print("Beide sind wohl tot!")
     elif HeldenAusdauer > 0 and MonsterAusdauer <= 0:
-        print("Monster ist wohl tot!")
+        print("Monster ist wohl tot! Deine restliche Ausdauer ist", HeldenAusdauer)
     else:
         print("Held tot!")
 
