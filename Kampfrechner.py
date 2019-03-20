@@ -1,22 +1,8 @@
 
 
-"""
-Dies ist ein Rechner um KÃ¤mpfe im Buch Einsamer Wolf schnell zu rechnen.
-Erst eine kurze Abfrage der eigenen StÃ¤rke und Ausdauer.
-Dann eine Enstcheidung im zu KÃ¤mpfen oder den Status zu sehen.
-To do:
-    - Kampftabelle https://mantikoreverlag.de/wp-content/uploads/downloads/1/EW_Kampftabelle.pdf
-      muss noch abgebildet werden.
-      Alt: Aktuelle LÃ¶sung If / Elif Schleife Ã¼ber die Tabelle gehen lassen.
-      Neuer Ansatz: JSON File oder CSV Tabelle einlesen
-Stand 01.03.2019
-Total Redo - Neuer Ansatz mit Dictionary und einfacher Schleife!
-Stand 15.03.2019
-"""
-
-# import random
-
-# Hier die Variablendefinitionen. Das Dictionary mÃ¼sste zur lesbarkeit anders dargestellt werden.
+#-------------------------------------------------------------------------------
+# test der while loop
+#-------------------------------------------------------------------------------
 
 HeldenKraft = int((input("Wie hoch ist deine Kraft? ")))
 HeldenAusdauer = int((input("Wie ist deine Ausdauer? ")))
@@ -124,8 +110,8 @@ KampfErgebnisseH = {
 }
 Zufallszahl = 1 # TODO: Random Kommentar entfernen random.randint(0, 2)
 # Teil1 = 0
-
-
+Unentschieden = True
+AnzahlKampf = 0
 # Hier beginnt das Programm
 
 def kampfNeu():
@@ -151,17 +137,18 @@ print("Du hast also ", HeldenKraft, " Kraft und ", HeldenAusdauer, " Ausdauer.")
 print("Dein Gegner hat ", MonsterKraft, " Kraft und ", MonsterAusdauer, " Ausdauer.")
 print("Der Kampf beginnt!")
 
-kampfNeu()
 
-if HeldenAusdauer > 0:
-    print("Glück gehabt, der Held lebt noch!")
-    if MonsterAusdauer < 0:
-        print("Sauber, Monster ist tot!")
-    else:
-        print("Das Monster lebt noch!")
-        print("Heldenausdauer neu: ", HeldenAusdauer, " - Monsterausdauer neu: ", MonsterAusdauer)
-        # TODO: Wenn das hier eintritt, dann haben Monster und Held  noch leben und es müsste wieder von vorne Anfangen.
+while HeldenAusdauer > 0 and MonsterAusdauer > 0:
+    kampfNeu()
+    AnzahlKampf += 1
+    print("Runde:", AnzahlKampf)
+    print("Heldenausdauer neu: ", HeldenAusdauer, " - Monsterausdauer neu: ", MonsterAusdauer)
 else:
-    print("Du bist anscheinend tod...")
+    if HeldenAusdauer <= 0 and MonsterAusdauer <= 0:
+        print("Beide sind wohl tot!")
+    elif HeldenAusdauer > 0 and MonsterAusdauer <= 0:
+        print("Monster ist wohl tot!")
+    else:
+        print("Held tot!")
 
-print("Ich bins, die Afterschleifenwelt!")
+print("Ich bin das neue Ende!")
