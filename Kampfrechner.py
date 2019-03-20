@@ -1,13 +1,13 @@
 
 
 """
-Dies ist ein Rechner um Kämpfe im Buch Einsamer Wolf schnell zu rechnen.
-Erst eine kurze Abfrage der eigenen Stärke und Ausdauer.
-Dann eine Enstcheidung im zu Kämpfen oder den Status zu sehen.
+Dies ist ein Rechner um KÃ¤mpfe im Buch Einsamer Wolf schnell zu rechnen.
+Erst eine kurze Abfrage der eigenen StÃ¤rke und Ausdauer.
+Dann eine Enstcheidung im zu KÃ¤mpfen oder den Status zu sehen.
 To do:
     - Kampftabelle https://mantikoreverlag.de/wp-content/uploads/downloads/1/EW_Kampftabelle.pdf
       muss noch abgebildet werden.
-      Alt: Aktuelle Lösung If / Elif Schleife über die Tabelle gehen lassen.
+      Alt: Aktuelle LÃ¶sung If / Elif Schleife Ã¼ber die Tabelle gehen lassen.
       Neuer Ansatz: JSON File oder CSV Tabelle einlesen
 Stand 01.03.2019
 Total Redo - Neuer Ansatz mit Dictionary und einfacher Schleife!
@@ -16,7 +16,7 @@ Stand 15.03.2019
 
 # import random
 
-# Hier die Variablendefinitionen. Das Dictionary müsste zur lesbarkeit anders dargestellt werden.
+# Hier die Variablendefinitionen. Das Dictionary mÃ¼sste zur lesbarkeit anders dargestellt werden.
 
 HeldenKraft = int((input("Wie hoch ist deine Kraft? ")))
 HeldenAusdauer = int((input("Wie ist deine Ausdauer? ")))
@@ -70,7 +70,7 @@ KampfErgebnisseF = {
     "19": -8,
     "110": -8,
     "111": -9,
-} # TODO: Dictionaries vervvollständigen
+} # TODO: Dictionaries vervvollstÃ¤ndigen
 KampfErgebnisseH = {
     "0-11": -0,
     "0-10": -0,
@@ -123,22 +123,22 @@ KampfErgebnisseH = {
     "111": -3,
 }
 Zufallszahl = 1 # TODO: Random Kommentar entfernen random.randint(0, 2)
-Teil1 = 0
+# Teil1 = 0
 
 
 # Hier beginnt das Programm
 
-
-def kampf_H(kq, zz, ha):
-    Teil1 = str(zz) + str(kq)
-    HeldenAusdauer = ha + KampfErgebnisseH[Teil1]
-    return HeldenAusdauer
-
-
-def kampf_M(kq, zz, ma):
-    Teil1 = str(zz) + str(kq)
-    MonsterAusdauer = ma + KampfErgebnisseF[Teil1]
-    return MonsterAusdauer
+def kampfNeu():
+    global Zufallszahl
+    global HeldenAusdauer
+    global MonsterAusdauer
+    global HeldenKraft
+    global MonsterKraft
+    KampfQoutient = HeldenKraft - MonsterKraft
+    Teil1 = str(Zufallszahl) + str(KampfQoutient)
+    HeldenAusdauer =  HeldenAusdauer + KampfErgebnisseH[Teil1]
+    MonsterAusdauer = MonsterAusdauer + KampfErgebnisseF[Teil1]
+    return HeldenAusdauer, MonsterAusdauer
 
 
 MonsterKraft = int(input("Wie ist die Kraft des Monsters? "))
@@ -150,7 +150,7 @@ MonsterAusdauer = int(input("Wie ist die Ausdauer des Monsters? "))
 print("Du hast also ", HeldenKraft, " Kraft und ", HeldenAusdauer, " Ausdauer.")
 print("Dein Gegner hat ", MonsterKraft, " Kraft und ", MonsterAusdauer, " Ausdauer.")
 print("Der Kampf beginnt!")
-KampfQoutient = HeldenKraft - MonsterKraft
-ErgbenissH = kampf_H(KampfQoutient, Zufallszahl, HeldenAusdauer)
-ErgebnissM = kampf_M(KampfQoutient, Zufallszahl, MonsterAusdauer)
-print("Heldenausdauer neu: ", ErgbenissH, " - Monsterausdauer neu: ", ErgebnissM)
+
+kampfNeu()
+
+print("Heldenausdauer neu: ", HeldenAusdauer, " - Monsterausdauer neu: ", MonsterAusdauer)
