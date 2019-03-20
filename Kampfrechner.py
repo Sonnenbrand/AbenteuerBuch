@@ -153,4 +153,15 @@ print("Der Kampf beginnt!")
 
 kampfNeu()
 
-print("Heldenausdauer neu: ", HeldenAusdauer, " - Monsterausdauer neu: ", MonsterAusdauer)
+if HeldenAusdauer > 0:
+    print("Glück gehabt, der Held lebt noch!")
+    if MonsterAusdauer < 0:
+        print("Sauber, Monster ist tot!")
+    else:
+        print("Das Monster lebt noch!")
+        print("Heldenausdauer neu: ", HeldenAusdauer, " - Monsterausdauer neu: ", MonsterAusdauer)
+        # TODO: Wenn das hier eintritt, dann haben Monster und Held  noch leben und es müsste wieder von vorne Anfangen.
+else:
+    print("Du bist anscheinend tod...")
+
+print("Ich bins, die Afterschleifenwelt!")
