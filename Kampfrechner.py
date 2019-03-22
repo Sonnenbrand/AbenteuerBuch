@@ -110,7 +110,11 @@ Zufallszahl = 1 # TODO: Random Kommentar entfernen random.randint(0, 2)
 # Teil1 = 0
 Unentschieden = True
 AnzahlKampf = 0
+Nochmal = True
+MonsterKraft = 0
+MonsterAusdauer = 0
 # Hier beginnt das Programm
+
 
 def kampfNeu():
     global Zufallszahl
@@ -125,28 +129,25 @@ def kampfNeu():
     return HeldenAusdauer, MonsterAusdauer
 
 
-MonsterKraft = int(input("Wie ist die Kraft des Monsters? "))
-
-
-MonsterAusdauer = int(input("Wie ist die Ausdauer des Monsters? "))
-
-
-print("Du hast also ", HeldenKraft, " Kraft und ", HeldenAusdauer, " Ausdauer.")
-print("Dein Gegner hat ", MonsterKraft, " Kraft und ", MonsterAusdauer, " Ausdauer.")
-print("Der Kampf beginnt!")
-
-
-while HeldenAusdauer > 0 and MonsterAusdauer > 0:
-    kampfNeu()
-    AnzahlKampf += 1
-    print("Runde:", AnzahlKampf)
-    print("Heldenausdauer neu: ", HeldenAusdauer, " - Monsterausdauer neu: ", MonsterAusdauer)
-else:
-    if HeldenAusdauer <= 0 and MonsterAusdauer <= 0:
-        print("Beide sind wohl tot!")
-    elif HeldenAusdauer > 0 and MonsterAusdauer <= 0:
-        print("Monster ist wohl tot! Deine restliche Ausdauer ist", HeldenAusdauer)
+while Nochmal == True:
+    MonsterKraft = int(input("Wie ist die Kraft des Monsters? "))
+    MonsterAusdauer = int(input("Wie ist die Ausdauer des Monsters? "))
+    print("Du hast also ", HeldenKraft, " Kraft und ", HeldenAusdauer, " Ausdauer.")
+    print("Dein Gegner hat ", MonsterKraft, " Kraft und ", MonsterAusdauer, " Ausdauer.")
+    print("Der Kampf beginnt!")
+    while HeldenAusdauer > 0 and MonsterAusdauer > 0:
+        kampfNeu()
+        AnzahlKampf += 1
+        print("Runde:", AnzahlKampf)
+        print("Heldenausdauer neu: ", HeldenAusdauer, " - Monsterausdauer neu: ", MonsterAusdauer)
     else:
-        print("Held tot!")
+        if HeldenAusdauer <= 0 and MonsterAusdauer <= 0:
+            print("Beide sind wohl tot!")
+        elif HeldenAusdauer > 0 and MonsterAusdauer <= 0:
+            print("Monster ist wohl tot! Deine restliche Ausdauer ist", HeldenAusdauer)
+            print("Du kannst jetzt weiter kämpfen.")
+        else:
+            print("Held tot!")
+            Nochmal = False
 
-print("Ich bin das neue Ende!")
+print("Danke fürs spielen!")
